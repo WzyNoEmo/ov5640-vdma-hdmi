@@ -15,7 +15,7 @@ Implemented I2C dynamic configuration  for ov5640 and VDMA base configuration.
 ## Application 
 If you want to use this project as your own personalized project , you need:
 
-+ Add IP package to path , including my_ip ( User defined ) & vivado-library ( Xilinx Official )
++ Add my_ip (User defined) IP package to path , download and install vivado-library IP package(Xilinx Official)
 
 + Add your own processing system in the block design
 
