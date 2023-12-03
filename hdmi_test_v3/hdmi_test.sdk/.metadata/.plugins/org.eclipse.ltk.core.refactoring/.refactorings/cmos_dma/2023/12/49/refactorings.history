@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;cmos_dma/src/vdma_api.c&apos; to &apos;vdma_api.h&apos;" description="Rename resource &apos;vdma_api.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/vdma_api.c" name="vdma_api.h" stamp="1701587895014" updateReferences="true"/>
+</session>

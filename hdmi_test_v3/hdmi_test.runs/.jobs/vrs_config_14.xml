@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="BD_axi_vdma_0_0_synth_1" LaunchDir="C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/BD_axi_vdma_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="BD_ov5640_driver_0_0_synth_1" LaunchDir="C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/BD_ov5640_driver_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+

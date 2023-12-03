@@ -1,0 +1,8 @@
+15:24:13 **** Incremental Build of configuration Debug for project cmos_dma ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: *** 没有规则可以创建“cmos_dma.elf”需要的目标“main.o”。 停止。
+
+15:24:13 Build Finished (took 159ms)
+

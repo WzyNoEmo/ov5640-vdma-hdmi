@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Sun Dec  3 16:28:25 2023
+# Process ID: 6484
+# Current directory: C:/Users/WzyNoEmo/Desktop/hdmi_test_v3/hdmi_test.runs/synth_1
+# Command line: vivado.exe -log BD_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source BD_wrapper.tcl
+# Log file: C:/Users/WzyNoEmo/Desktop/hdmi_test_v3/hdmi_test.runs/synth_1/BD_wrapper.vds
+# Journal file: C:/Users/WzyNoEmo/Desktop/hdmi_test_v3/hdmi_test.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source BD_wrapper.tcl -notrace

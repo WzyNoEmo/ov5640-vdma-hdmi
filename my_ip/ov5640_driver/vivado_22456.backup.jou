@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Sat Dec  2 15:38:22 2023
+# Process ID: 22456
+# Current directory: C:/Users/WzyNoEmo/Desktop/my_ip/ov5640_driver
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21300 C:\Users\WzyNoEmo\Desktop\my_ip\ov5640_driver\ov5640_driver.xpr
+# Log file: C:/Users/WzyNoEmo/Desktop/my_ip/ov5640_driver/vivado.log
+# Journal file: C:/Users/WzyNoEmo/Desktop/my_ip/ov5640_driver\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/WzyNoEmo/Desktop/my_ip/ov5640_driver/ov5640_driver.xpr
+update_compile_order -fileset sources_1

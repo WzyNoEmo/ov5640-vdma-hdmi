@@ -1,0 +1,658 @@
+#-----------------------------------------------------------
+# Vivado v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Sat Dec  2 15:02:07 2023
+# Process ID: 29076
+# Current directory: C:/Users/WzyNoEmo/Desktop/hdmi_test
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12268 C:\Users\WzyNoEmo\Desktop\hdmi_test\hdmi_test.xpr
+# Log file: C:/Users/WzyNoEmo/Desktop/hdmi_test/vivado.log
+# Journal file: C:/Users/WzyNoEmo/Desktop/hdmi_test\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.xpr
+open_hw
+update_compile_order -fileset sources_1
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+file mkdir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk
+file copy -force C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.sysdef C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+
+launch_sdk -workspace C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk -hwspec C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+open_bd_design {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_vdma:6.3 axi_vdma_0
+endgroup
+delete_bd_objs [get_bd_nets timing_gen_0_data] [get_bd_nets timing_gen_0_hs] [get_bd_nets timing_gen_0_vs] [get_bd_nets timing_gen_0_de] [get_bd_cells timing_gen_0]
+set_property location {3 787 62} [get_bd_cells axi_vdma_0]
+startgroup
+set_property -dict [list CONFIG.PCW_USE_S_AXI_HP0 {1} CONFIG.PCW_QSPI_GRP_SINGLE_SS_ENABLE {1}] [get_bd_cells processing_system7_0]
+endgroup
+startgroup
+connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK]
+endgroup
+set_property location {3 677 52} [get_bd_cells axi_vdma_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_interconnect_0
+endgroup
+set_property location {4 1214 27} [get_bd_cells axi_interconnect_0]
+set_property -dict [list CONFIG.NUM_MI {1}] [get_bd_cells axi_interconnect_0]
+set_property location {5 1626 109} [get_bd_cells processing_system7_0]
+connect_bd_intf_net [get_bd_intf_pins processing_system7_0/S_AXI_HP0] -boundary_type upper [get_bd_intf_pins axi_interconnect_0/M00_AXI]
+startgroup
+set_property -dict [list CONFIG.NUM_SI {2} CONFIG.NUM_MI {1} CONFIG.NUM_MI {1}] [get_bd_cells axi_interconnect_0]
+endgroup
+connect_bd_intf_net -boundary_type upper [get_bd_intf_pins axi_interconnect_0/S00_AXI] [get_bd_intf_pins axi_vdma_0/M_AXI_MM2S]
+connect_bd_intf_net -boundary_type upper [get_bd_intf_pins axi_interconnect_0/S01_AXI] [get_bd_intf_pins axi_vdma_0/M_AXI_S2MM]
+connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins axi_interconnect_0/ACLK]
+connect_bd_net [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins axi_interconnect_0/S01_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_interconnect_1
+endgroup
+set_property location {2 581 -1} [get_bd_cells axi_interconnect_1]
+set_property location {2 548 -57} [get_bd_cells axi_interconnect_1]
+set_property location {2 552 -105} [get_bd_cells axi_interconnect_1]
+set_property -dict [list CONFIG.NUM_MI {1}] [get_bd_cells axi_interconnect_1]
+startgroup
+set_property -dict [list CONFIG.PCW_USE_M_AXI_GP0 {1}] [get_bd_cells processing_system7_0]
+endgroup
+connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK]
+connect_bd_net [get_bd_pins axi_interconnect_1/ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins axi_interconnect_1/S00_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins axi_interconnect_1/M00_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins rst_ps7_0_100M/interconnect_aresetn] [get_bd_pins axi_interconnect_1/ARESETN]
+connect_bd_net [get_bd_pins rst_ps7_0_100M/interconnect_aresetn] [get_bd_pins axi_interconnect_0/ARESETN]
+connect_bd_intf_net [get_bd_intf_pins processing_system7_0/M_AXI_GP0] -boundary_type upper [get_bd_intf_pins axi_interconnect_1/S00_AXI]
+connect_bd_intf_net -boundary_type upper [get_bd_intf_pins axi_interconnect_1/M00_AXI] [get_bd_intf_pins axi_vdma_0/S_AXI_LITE]
+connect_bd_net [get_bd_pins rst_ps7_0_100M/peripheral_aresetn] [get_bd_pins axi_interconnect_1/S00_ARESETN]
+connect_bd_net [get_bd_pins axi_interconnect_1/M00_ARESETN] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
+connect_bd_net [get_bd_pins axi_vdma_0/axi_resetn] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
+connect_bd_net [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
+connect_bd_net [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
+connect_bd_net [get_bd_pins axi_interconnect_0/S01_ARESETN] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
+set_property location {2 554 20} [get_bd_cells axi_interconnect_1]
+set_property location {0.5 39 92} [get_bd_cells rst_ps7_0_100M]
+set_property location {1 100 272} [get_bd_cells clk_wiz_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:v_axi4s_vid_out:4.0 v_axi4s_vid_out_0
+endgroup
+set_property location {4 1149 442} [get_bd_cells v_axi4s_vid_out_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:v_vid_in_axi4s:4.0 v_vid_in_axi4s_0
+endgroup
+set_property location {2 461 451} [get_bd_cells v_vid_in_axi4s_0]
+set_property location {2 527 444} [get_bd_cells v_vid_in_axi4s_0]
+connect_bd_intf_net [get_bd_intf_pins v_vid_in_axi4s_0/video_out] [get_bd_intf_pins axi_vdma_0/S_AXIS_S2MM]
+connect_bd_intf_net [get_bd_intf_pins axi_vdma_0/M_AXIS_MM2S] [get_bd_intf_pins v_axi4s_vid_out_0/video_in]
+startgroup
+set_property -dict [list CONFIG.C_HAS_ASYNC_CLK {1}] [get_bd_cells v_axi4s_vid_out_0]
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:v_tc:6.1 v_tc_0
+endgroup
+set_property -dict [list CONFIG.HAS_AXI4_LITE {false} CONFIG.enable_detection {false}] [get_bd_cells v_tc_0]
+connect_bd_net [get_bd_pins v_axi4s_vid_out_0/vid_active_video] [get_bd_pins rgb2dvi_0/vid_pVDE]
+connect_bd_net [get_bd_pins v_axi4s_vid_out_0/vid_data] [get_bd_pins rgb2dvi_0/vid_pData]
+connect_bd_net [get_bd_pins v_axi4s_vid_out_0/vid_vsync] [get_bd_pins rgb2dvi_0/vid_pVSync]
+connect_bd_net [get_bd_pins v_axi4s_vid_out_0/vid_hsync] [get_bd_pins rgb2dvi_0/vid_pHSync]
+set_property location {4 1247 509} [get_bd_cells v_axi4s_vid_out_0]
+connect_bd_net [get_bd_pins v_axi4s_vid_out_0/vtg_ce] [get_bd_pins v_tc_0/gen_clken]
+connect_bd_intf_net [get_bd_intf_pins v_tc_0/vtiming_out] [get_bd_intf_pins v_axi4s_vid_out_0/vtiming_in]
+connect_bd_net [get_bd_pins clk_wiz_0/locked] [get_bd_pins v_tc_0/resetn]
+connect_bd_net [get_bd_pins v_tc_0/clken] [get_bd_pins clk_wiz_0/locked]
+connect_bd_net [get_bd_pins v_axi4s_vid_out_0/vid_io_out_ce] [get_bd_pins clk_wiz_0/locked]
+connect_bd_net [get_bd_pins v_axi4s_vid_out_0/aclken] [get_bd_pins clk_wiz_0/locked]
+connect_bd_net [get_bd_pins v_axi4s_vid_out_0/aresetn] [get_bd_pins clk_wiz_0/locked]
+connect_bd_net [get_bd_pins v_axi4s_vid_out_0/aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+startgroup
+set_property -dict [list CONFIG.C_HAS_ASYNC_CLK {1}] [get_bd_cells v_vid_in_axi4s_0]
+endgroup
+set_property location {2 523 492} [get_bd_cells v_vid_in_axi4s_0]
+connect_bd_net [get_bd_pins v_vid_in_axi4s_0/axis_enable] [get_bd_pins v_vid_in_axi4s_0/aresetn]
+undo
+connect_bd_net [get_bd_pins v_vid_in_axi4s_0/axis_enable] [get_bd_pins clk_wiz_0/locked]
+connect_bd_net [get_bd_pins v_vid_in_axi4s_0/aresetn] [get_bd_pins clk_wiz_0/locked]
+connect_bd_net [get_bd_pins v_vid_in_axi4s_0/aclken] [get_bd_pins clk_wiz_0/locked]
+connect_bd_net [get_bd_pins v_vid_in_axi4s_0/aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins v_axi4s_vid_out_0/vid_io_out_clk] [get_bd_pins clk_wiz_0/clk_out1]
+connect_bd_net [get_bd_pins v_tc_0/clk] [get_bd_pins clk_wiz_0/clk_out1]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:ov5640_driver:1.0 ov5640_driver_0
+endgroup
+connect_bd_net [get_bd_pins ov5640_driver_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins ov5640_driver_0/rstn] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
+startgroup
+make_bd_pins_external  [get_bd_pins ov5640_driver_0/cmos_pclk]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins ov5640_driver_0/cmos_vsync]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins ov5640_driver_0/cmos_href]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins ov5640_driver_0/cmos_data]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins ov5640_driver_0/pclk]
+endgroup
+delete_bd_objs [get_bd_nets ov5640_driver_0_pclk]
+startgroup
+make_bd_pins_external  [get_bd_pins ov5640_driver_0/cmos_scl]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins ov5640_driver_0/cmos_sda]
+endgroup
+delete_bd_objs [get_bd_ports pclk_0]
+disconnect_bd_net /rst_ps7_0_100M_peripheral_aresetn [get_bd_pins ov5640_driver_0/rstn]
+connect_bd_net [get_bd_pins ov5640_driver_0/rstn] [get_bd_pins clk_wiz_0/locked]
+connect_bd_net [get_bd_pins ov5640_driver_0/pclk] [get_bd_pins v_vid_in_axi4s_0/vid_io_in_clk]
+connect_bd_net [get_bd_pins ov5640_driver_0/data_valid] [get_bd_pins v_vid_in_axi4s_0/vid_active_video]
+connect_bd_net [get_bd_pins ov5640_driver_0/cmos_clk_en] [get_bd_pins v_vid_in_axi4s_0/vid_data]
+undo
+connect_bd_net [get_bd_pins ov5640_driver_0/vsync] [get_bd_pins v_vid_in_axi4s_0/vid_vsync]
+connect_bd_net [get_bd_pins ov5640_driver_0/rgb_data] [get_bd_pins v_vid_in_axi4s_0/vid_data]
+connect_bd_net [get_bd_pins ov5640_driver_0/cmos_clk_en] [get_bd_pins v_vid_in_axi4s_0/vid_io_in_ce]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_0
+endgroup
+set_property -dict [list CONFIG.C_SIZE {1} CONFIG.C_OPERATION {not} CONFIG.LOGO_FILE {data/sym_notgate.png}] [get_bd_cells util_vector_logic_0]
+set_property location {1.5 199 768} [get_bd_cells util_vector_logic_0]
+connect_bd_net [get_bd_pins clk_wiz_0/locked] [get_bd_pins util_vector_logic_0/Op1]
+connect_bd_net [get_bd_pins util_vector_logic_0/Res] [get_bd_pins v_vid_in_axi4s_0/vid_io_in_reset]
+connect_bd_net [get_bd_pins util_vector_logic_0/Res] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_reset]
+regenerate_bd_layout
+regenerate_bd_layout
+regenerate_bd_layout
+validate_bd_design
+connect_bd_net [get_bd_pins axi_vdma_0/s_axi_lite_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins axi_vdma_0/m_axi_mm2s_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins axi_vdma_0/m_axis_mm2s_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins axi_vdma_0/m_axi_s2mm_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins axi_vdma_0/s_axis_s2mm_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+regenerate_bd_layout
+validate_bd_design
+assign_bd_address [get_bd_addr_segs {processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM }]
+save_bd_design
+validate_bd_design
+assign_bd_address [get_bd_addr_segs {axi_vdma_0/S_AXI_LITE/Reg }]
+save_bd_design
+validate_bd_design
+startgroup
+set_property -dict [list CONFIG.c_m_axis_mm2s_tdata_width {24} CONFIG.c_mm2s_max_burst_length {32} CONFIG.c_s2mm_max_burst_length {32}] [get_bd_cells axi_vdma_0]
+endgroup
+regenerate_bd_layout
+validate_bd_design
+startgroup
+set_property -dict [list CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {25} CONFIG.PCW_EN_CLK1_PORT {1}] [get_bd_cells processing_system7_0]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins processing_system7_0/FCLK_CLK1]
+endgroup
+set_property name cmos_xclk [get_bd_ports FCLK_CLK1_0]
+set_property name cmos_scl [get_bd_ports cmos_scl_0]
+set_property name cmos_sda [get_bd_ports cmos_sda_0]
+set_property name cmos_pclk [get_bd_ports cmos_pclk_0]
+set_property name cmos_vsync [get_bd_ports cmos_vsync_0]
+set_property name cmos_href [get_bd_ports cmos_href_0]
+set_property name cmos_data [get_bd_ports cmos_data_0]
+save_bd_design
+generate_target all [get_files  C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+catch { config_ip_cache -export [get_ips -all BD_processing_system7_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_axi_vdma_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_v_axi4s_vid_out_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_v_vid_in_axi4s_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_v_tc_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_ov5640_driver_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_util_vector_logic_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_xbar_0] }
+catch { config_ip_cache -export [get_ips -all BD_auto_pc_1] }
+catch { config_ip_cache -export [get_ips -all BD_auto_pc_0] }
+export_ip_user_files -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+launch_runs -jobs 10 {BD_processing_system7_0_0_synth_1 BD_axi_vdma_0_0_synth_1 BD_v_axi4s_vid_out_0_0_synth_1 BD_v_vid_in_axi4s_0_0_synth_1 BD_v_tc_0_0_synth_1 BD_ov5640_driver_0_0_synth_1 BD_util_vector_logic_0_0_synth_1 BD_xbar_0_synth_1 BD_auto_pc_1_synth_1 BD_auto_pc_0_synth_1}
+export_simulation -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -directory C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files -ipstatic_source_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/modelsim} {questa=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/questa} {riviera=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/riviera} {activehdl=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+update_ip_catalog -rebuild -scan_changes
+report_ip_status -name ip_status
+upgrade_ip -vlnv xilinx.com:user:ov5640_driver:1.0 [get_ips  BD_ov5640_driver_0_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips BD_ov5640_driver_0_0] -no_script -sync -force -quiet
+generate_target all [get_files  C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+catch { config_ip_cache -export [get_ips -all BD_axi_vdma_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_ov5640_driver_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_xbar_0] }
+catch { [ delete_ip_run [get_ips -all BD_xbar_0] ] }
+catch { config_ip_cache -export [get_ips -all BD_auto_pc_1] }
+catch { config_ip_cache -export [get_ips -all BD_auto_pc_0] }
+export_ip_user_files -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+launch_runs -jobs 10 {BD_axi_vdma_0_0_synth_1 BD_ov5640_driver_0_0_synth_1}
+export_simulation -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -directory C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files -ipstatic_source_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/modelsim} {questa=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/questa} {riviera=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/riviera} {activehdl=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run BD_axi_vdma_0_0_synth_1
+update_ip_catalog -rebuild -scan_changes
+report_ip_status -name ip_status
+upgrade_ip -vlnv xilinx.com:user:ov5640_driver:1.0 [get_ips  BD_ov5640_driver_0_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips BD_ov5640_driver_0_0] -no_script -sync -force -quiet
+generate_target all [get_files  C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+catch { config_ip_cache -export [get_ips -all BD_axi_vdma_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_ov5640_driver_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_xbar_0] }
+catch { config_ip_cache -export [get_ips -all BD_auto_pc_1] }
+catch { config_ip_cache -export [get_ips -all BD_auto_pc_0] }
+export_ip_user_files -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+launch_runs -jobs 10 {BD_axi_vdma_0_0_synth_1 BD_ov5640_driver_0_0_synth_1}
+export_simulation -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -directory C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files -ipstatic_source_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/modelsim} {questa=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/questa} {riviera=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/riviera} {activehdl=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+report_ip_status -name ip_status 
+update_ip_catalog -rebuild -scan_changes
+report_ip_status -name ip_status
+upgrade_ip -vlnv xilinx.com:user:ov5640_driver:1.0 [get_ips  BD_ov5640_driver_0_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips BD_ov5640_driver_0_0] -no_script -sync -force -quiet
+generate_target all [get_files  C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+catch { config_ip_cache -export [get_ips -all BD_ov5640_driver_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_xbar_0] }
+catch { config_ip_cache -export [get_ips -all BD_auto_pc_1] }
+catch { config_ip_cache -export [get_ips -all BD_auto_pc_0] }
+export_ip_user_files -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+launch_runs -jobs 10 BD_ov5640_driver_0_0_synth_1
+export_simulation -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -directory C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files -ipstatic_source_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/modelsim} {questa=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/questa} {riviera=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/riviera} {activehdl=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+report_ip_status -name ip_status 
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+place_ports cmos_xclk U19
+place_ports cmos_pclk Y19
+place_ports cmos_href Y16
+place_ports cmos_vsync W18
+place_ports {cmos_data[0]} W13
+place_ports {cmos_data[1]} T10
+place_ports {cmos_data[2]} V12
+place_ports {cmos_data[3]} T11
+place_ports {cmos_data[4]} W16
+place_ports {cmos_data[5]} Y14
+place_ports {cmos_data[6]} V16
+place_ports {cmos_data[7]} W14
+save_constraints
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+wait_on_run impl_1
+set_property IOSTANDARD LVCMOS33 [get_ports [list {cmos_data[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {cmos_data[1]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {cmos_data[2]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {cmos_data[3]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {cmos_data[4]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {cmos_data[5]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {cmos_data[6]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {cmos_data[7]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list cmos_pclk]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list cmos_href cmos_vsync]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list cmos_xclk]]
+save_constraints
+reset_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+wait_on_run impl_1
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+refresh_design
+reset_run synth_1
+launch_runs impl_1 -jobs 20
+wait_on_run impl_1
+open_bd_design {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd}
+close_design
+open_run synth_1 -name synth_1
+set_property IOSTANDARD LVCMOS33 [get_ports [list cmos_xclk]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list cmos_href cmos_vsync]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list cmos_pclk]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {cmos_data[7]} {cmos_data[6]} {cmos_data[5]} {cmos_data[4]} {cmos_data[3]} {cmos_data[2]} {cmos_data[1]} {cmos_data[0]}]]
+save_constraints
+reset_run impl_1
+launch_runs impl_1 -jobs 20
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+wait_on_run impl_1
+open_bd_design {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd}
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+wait_on_run impl_1
+open_bd_design {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd}
+file copy -force C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.sysdef C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+
+launch_sdk -workspace C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk -hwspec C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+launch_sdk -workspace C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk -hwspec C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+regenerate_bd_layout
+regenerate_bd_layout
+regenerate_bd_layout
+close_bd_design [get_bd_designs BD]
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+refresh_design
+open_bd_design {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0
+endgroup
+set_property location {7 2196 467} [get_bd_cells xlconstant_0]
+set_property -dict [list CONFIG.CONST_WIDTH {24} CONFIG.CONST_VAL {0xff00ff}] [get_bd_cells xlconstant_0]
+delete_bd_objs [get_bd_nets v_axi4s_vid_out_0_vid_data]
+connect_bd_net [get_bd_pins xlconstant_0/dout] [get_bd_pins rgb2dvi_0/vid_pData]
+save_bd_design
+generate_target all [get_files  C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+catch { config_ip_cache -export [get_ips -all BD_xbar_0] }
+catch { config_ip_cache -export [get_ips -all BD_xlconstant_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_auto_pc_1] }
+catch { config_ip_cache -export [get_ips -all BD_auto_pc_0] }
+export_ip_user_files -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+launch_runs -jobs 20 BD_xlconstant_0_0_synth_1
+export_simulation -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -directory C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files -ipstatic_source_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/modelsim} {questa=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/questa} {riviera=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/riviera} {activehdl=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+launch_sdk -workspace C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk -hwspec C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+disconnect_hw_server localhost:3121
+connect_hw_server
+disconnect_hw_server localhost:3121
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+open_bd_design {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd}
+delete_bd_objs [get_bd_nets xlconstant_0_dout] [get_bd_cells xlconstant_0]
+connect_bd_net [get_bd_pins v_axi4s_vid_out_0/vid_data] [get_bd_pins rgb2dvi_0/vid_pData]
+delete_bd_objs [get_bd_intf_nets v_vid_in_axi4s_0_video_out]
+delete_bd_objs [get_bd_intf_nets axi_vdma_0_M_AXIS_MM2S]
+connect_bd_intf_net [get_bd_intf_pins v_vid_in_axi4s_0/video_out] [get_bd_intf_pins v_axi4s_vid_out_0/video_in]
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+wait_on_run impl_1
+reset_run synth_1
+generate_target all [get_files  C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+export_ip_user_files -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+export_simulation -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -directory C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files -ipstatic_source_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/modelsim} {questa=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/questa} {riviera=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/riviera} {activehdl=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+open_bd_design {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd}
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+disconnect_hw_server localhost:3121
+connect_hw_server
+disconnect_hw_server localhost:3121
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+open_bd_design {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd}
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+delete_bd_objs [get_bd_intf_nets v_vid_in_axi4s_0_video_out]
+connect_bd_intf_net [get_bd_intf_pins axi_vdma_0/M_AXIS_MM2S] [get_bd_intf_pins v_axi4s_vid_out_0/video_in]
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+disconnect_hw_server localhost:3121
+connect_hw_server
+disconnect_hw_server localhost:3121
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+disconnect_hw_server localhost:3121
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+disconnect_hw_server localhost:3121
+connect_hw_server
+disconnect_hw_server localhost:3121
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+open_bd_design {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd}
+connect_bd_intf_net [get_bd_intf_pins v_vid_in_axi4s_0/video_out] [get_bd_intf_pins axi_vdma_0/S_AXIS_S2MM]
+regenerate_bd_layout
+regenerate_bd_layout
+regenerate_bd_layout
+regenerate_bd_layout
+regenerate_bd_layout
+regenerate_bd_layout
+regenerate_bd_layout
+regenerate_bd_layout
+regenerate_bd_layout
+regenerate_bd_layout
+delete_bd_objs [get_bd_nets cmos_pclk_0_1] [get_bd_nets cmos_data_0_1] [get_bd_nets ov5640_driver_0_data_valid] [get_bd_nets ov5640_driver_0_rgb_data] [get_bd_nets ov5640_driver_0_vsync] [get_bd_nets ov5640_driver_0_cmos_scl] [get_bd_nets Net] [get_bd_nets cmos_vsync_0_1] [get_bd_nets cmos_href_0_1] [get_bd_nets ov5640_driver_0_pclk] [get_bd_nets ov5640_driver_0_cmos_clk_en] [get_bd_cells ov5640_driver_0]
+delete_bd_objs [get_bd_intf_nets v_vid_in_axi4s_0_video_out] [get_bd_cells v_vid_in_axi4s_0]
+delete_bd_objs [get_bd_ports cmos_pclk]
+delete_bd_objs [get_bd_ports cmos_vsync]
+delete_bd_objs [get_bd_ports cmos_href]
+delete_bd_objs [get_bd_ports cmos_data]
+regenerate_bd_layout
+delete_bd_objs [get_bd_nets processing_system7_0_FCLK_CLK1] [get_bd_ports cmos_xclk]
+startgroup
+set_property -dict [list CONFIG.PCW_EN_CLK1_PORT {0}] [get_bd_cells processing_system7_0]
+endgroup
+delete_bd_objs [get_bd_ports cmos_sda]
+delete_bd_objs [get_bd_ports cmos_scl]
+set_property location {1 102 168} [get_bd_cells rst_ps7_0_100M]
+delete_bd_objs [get_bd_nets util_vector_logic_0_Res] [get_bd_cells util_vector_logic_0]
+disconnect_bd_net /clk_wiz_0_locked [get_bd_pins v_tc_0/clken]
+disconnect_bd_net /clk_wiz_0_locked [get_bd_pins v_tc_0/resetn]
+disconnect_bd_net /clk_wiz_0_locked [get_bd_pins v_axi4s_vid_out_0/vid_io_out_ce]
+disconnect_bd_net /clk_wiz_0_locked [get_bd_pins v_axi4s_vid_out_0/aresetn]
+disconnect_bd_net /clk_wiz_0_locked [get_bd_pins v_axi4s_vid_out_0/aclken]
+regenerate_bd_layout
+set_property location {3 898 523} [get_bd_cells v_tc_0]
+startgroup
+set_property -dict [list CONFIG.c_s2mm_genlock_mode {0} CONFIG.c_include_s2mm {0}] [get_bd_cells axi_vdma_0]
+delete_bd_objs [get_bd_intf_nets S01_AXI_1]
+endgroup
+regenerate_bd_layout
+delete_bd_objs [get_bd_intf_nets S00_AXI_1] [get_bd_intf_nets axi_interconnect_0_M00_AXI] [get_bd_cells axi_interconnect_0]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/processing_system7_0/FCLK_CLK0 (100 MHz)} Clk_slave {/processing_system7_0/FCLK_CLK0 (100 MHz)} Clk_xbar {/processing_system7_0/FCLK_CLK0 (100 MHz)} Master {/axi_vdma_0/M_AXI_MM2S} Slave {/processing_system7_0/S_AXI_HP0} intc_ip {New AXI SmartConnect} master_apm {0}}  [get_bd_intf_pins processing_system7_0/S_AXI_HP0]
+regenerate_bd_layout
+set_property location {3 852 365} [get_bd_cells v_tc_0]
+set_property location {3 862 402} [get_bd_cells v_tc_0]
+set_property location {3 865 366} [get_bd_cells v_tc_0]
+set_property location {3 846 364} [get_bd_cells v_tc_0]
+set_property location {3 860 392} [get_bd_cells v_tc_0]
+set_property location {3 862 426} [get_bd_cells v_tc_0]
+set_property location {3 863 469} [get_bd_cells v_tc_0]
+regenerate_bd_layout
+regenerate_bd_layout
+save_bd_design
+generate_target all [get_files  C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+catch { config_ip_cache -export [get_ips -all BD_processing_system7_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_axi_vdma_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_axi_smc_0] }
+catch { config_ip_cache -export [get_ips -all BD_auto_pc_1] }
+export_ip_user_files -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+launch_runs -jobs 20 {BD_processing_system7_0_0_synth_1 BD_axi_vdma_0_0_synth_1 BD_axi_smc_0_synth_1}
+export_simulation -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -directory C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files -ipstatic_source_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/modelsim} {questa=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/questa} {riviera=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/riviera} {activehdl=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+wait_on_run impl_1
+file copy -force C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.sysdef C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+
+launch_sdk -workspace C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk -hwspec C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+open_bd_design {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd}
+open_bd_design {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd}
+startgroup
+connect_bd_net [get_bd_pins clk_wiz_0/locked] [get_bd_pins v_tc_0/clken]
+endgroup
+connect_bd_net [get_bd_pins clk_wiz_0/locked] [get_bd_pins v_tc_0/resetn]
+connect_bd_net [get_bd_pins v_axi4s_vid_out_0/vid_io_out_ce] [get_bd_pins clk_wiz_0/locked]
+connect_bd_net [get_bd_pins v_axi4s_vid_out_0/aresetn] [get_bd_pins clk_wiz_0/locked]
+connect_bd_net [get_bd_pins v_axi4s_vid_out_0/aclken] [get_bd_pins clk_wiz_0/locked]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_0
+endgroup
+set_property -dict [list CONFIG.C_SIZE {1} CONFIG.C_OPERATION {not} CONFIG.LOGO_FILE {data/sym_notgate.png}] [get_bd_cells util_vector_logic_0]
+connect_bd_net [get_bd_pins clk_wiz_0/locked] [get_bd_pins util_vector_logic_0/Op1]
+connect_bd_net [get_bd_pins util_vector_logic_0/Res] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_reset]
+regenerate_bd_layout
+save_bd_design
+generate_target all [get_files  C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+catch { config_ip_cache -export [get_ips -all BD_util_vector_logic_0_0] }
+catch { config_ip_cache -export [get_ips -all BD_auto_pc_0] }
+export_ip_user_files -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd]
+export_simulation -of_objects [get_files C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd] -directory C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files -ipstatic_source_dir C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/modelsim} {questa=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/questa} {riviera=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/riviera} {activehdl=C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+wait_on_run impl_1
+launch_sdk -workspace C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk -hwspec C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+launch_sdk -workspace C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk -hwspec C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+launch_sdk -workspace C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk -hwspec C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+launch_sdk -workspace C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk -hwspec C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+open_bd_design {C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.srcs/sources_1/bd/BD/BD.bd}
+file copy -force C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.sysdef C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+
+launch_sdk -workspace C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk -hwspec C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+launch_sdk -workspace C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk -hwspec C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+file copy -force C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.runs/impl_1/BD_wrapper.sysdef C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf
+
+launch_sdk -workspace C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk -hwspec C:/Users/WzyNoEmo/Desktop/hdmi_test/hdmi_test.sdk/BD_wrapper.hdf

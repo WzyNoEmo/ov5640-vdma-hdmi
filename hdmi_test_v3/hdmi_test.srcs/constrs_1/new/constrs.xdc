@@ -1,0 +1,28 @@
+#
+set_property PACKAGE_PIN J18 [get_ports {TMDS_Data_p[2]}]
+set_property PACKAGE_PIN K19 [get_ports {TMDS_Data_p[1]}]
+set_property PACKAGE_PIN K17 [get_ports {TMDS_Data_p[0]}]
+set_property PACKAGE_PIN L16 [get_ports TMDS_Clk_p_0]
+
+set_property -dict {PACKAGE_PIN R14 IOSTANDARD LVCMOS33} [get_ports led_0]
+
+set_property IOSTANDARD LVCMOS33 [get_ports IIC_0_scl_io]
+set_property PACKAGE_PIN W19 [get_ports IIC_0_sda_io]
+set_property PACKAGE_PIN Y17 [get_ports IIC_0_scl_io]
+set_property IOSTANDARD LVCMOS33 [get_ports IIC_0_sda_io]
+set_property PULLUP true [get_ports IIC_0_scl_io]
+set_property PULLUP true [get_ports IIC_0_sda_io]
+set_property -dict {PACKAGE_PIN U19 IOSTANDARD LVCMOS33} [get_ports cmos_xclk]
+set_property -dict {PACKAGE_PIN Y19 IOSTANDARD LVCMOS33} [get_ports cmos_pclk]
+set_property -dict {PACKAGE_PIN W18 IOSTANDARD LVCMOS33} [get_ports cmos_vsync]
+set_property -dict {PACKAGE_PIN Y16 IOSTANDARD LVCMOS33} [get_ports cmos_href]
+set_property -dict {PACKAGE_PIN W13 IOSTANDARD LVCMOS33} [get_ports {cmos_data[0]}]
+set_property -dict {PACKAGE_PIN T10 IOSTANDARD LVCMOS33} [get_ports {cmos_data[1]}]
+set_property -dict {PACKAGE_PIN V12 IOSTANDARD LVCMOS33} [get_ports {cmos_data[2]}]
+set_property -dict {PACKAGE_PIN T11 IOSTANDARD LVCMOS33} [get_ports {cmos_data[3]}]
+set_property -dict {PACKAGE_PIN W16 IOSTANDARD LVCMOS33} [get_ports {cmos_data[4]}]
+set_property -dict {PACKAGE_PIN Y14 IOSTANDARD LVCMOS33} [get_ports {cmos_data[5]}]
+set_property -dict {PACKAGE_PIN V16 IOSTANDARD LVCMOS33} [get_ports {cmos_data[6]}]
+set_property -dict {PACKAGE_PIN W14 IOSTANDARD LVCMOS33} [get_ports {cmos_data[7]}]
+
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets cmos_pclk]
