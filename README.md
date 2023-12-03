@@ -18,3 +18,5 @@ If you want to use this project as your own personalized project , you need:
 + Add IP package to path , including my_ip ( User defined ) & vivado-library ( Xilinx Official )
 
 + Add your own processing system in the block design
+
++ Modify the constraint file (xdc) based on your hardware environment
