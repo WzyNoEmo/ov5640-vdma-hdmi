@@ -1,6 +1,6 @@
 # OV5640_VDMA_HDMI
 
-This project is based on the ZYNQ series development board PYNQ Z1. The project is based on Xilinx Vivado's development platform and constructs a video processing system for ov5640 camera acquisition and HDMI output around VDMA's IP
+This project is based on the ZYNQ series development board PYNQ Z1. The project is based on Xilinx Vivado's development platform and constructs a video processing system for ov5640 camera acquisition and HDMI output through VDMA IP
 
 ## Hardware 
 
